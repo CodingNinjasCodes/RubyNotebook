@@ -1,2 +1,27 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h3>Ruby Notebooks, Voilaa</h3>
+
+
+<ul id="codes">
+
+</ul>
+
+<%= form_tag '/evaluate', remote: true do %>
+
+
+    <textarea name="code" cols="40" rows="10" id="code">
+
+
+  </textarea>
+
+    <br>
+
+
+
+
+
+    <input type="submit" name="submit" value="Run">
+
+
+<% end %>
+
+
