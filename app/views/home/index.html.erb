@@ -5,23 +5,24 @@
 
 </ul>
 
-<%= form_tag '/evaluate', remote: true do %>
 
+<div id="editor" style="height: 500px; width: 100%" name="code"></div>
+<button onclick="run()">Run</button>
+<script>
+    var editor = ace.edit("editor");
+    editor.getSession().setMode("ace/mode/ruby");
+	var run=function (argument) {
+		// body...
+		var url = '/evaluate';
+		var myLoc = { 'code': editor.getValue() };
 
-    <textarea name="code" cols="40" rows="10" id="code">
-
-
-  </textarea>
-
-    <br>
-
-
-
-
-
-    <input type="submit" name="submit" value="Run">
-
-
-<% end %>
+		$.ajax({
+		  type: "POST",
+		  url: url,
+		  data: myLoc
+		});
+		editor.setValue("");
+	}
+</script>
 
 
